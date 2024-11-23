@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./index.css";
-
 import API_BASE_URL from "../../config";
-
-axios
-  .get(`${API_BASE_URL}/notes/${id}`)
-  .then((response) => {
-    const { title, description, category, completed } = response.data;
-    setTitle(title);
-    setDescription(description);
-    setCategory(category);
-    setCompleted(completed);
-  })
-  .catch((error) => console.error("Error fetching note:", error));
+import "./index.css";
 
 const NoteForm = () => {
   const [title, setTitle] = useState("");
@@ -27,7 +15,7 @@ const NoteForm = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:5000/api/notes/${id}`)
+        .get(`${API_BASE_URL}/notes/${id}`)
         .then((response) => {
           const { title, description, category, completed } = response.data;
           setTitle(title);
@@ -45,14 +33,14 @@ const NoteForm = () => {
 
     if (id) {
       axios
-        .put(`http://localhost:5000/api/notes/${id}`, noteData)
+        .put(`${API_BASE_URL}/notes/${id}`, noteData)
         .then(() => {
           navigate("/");
         })
         .catch((error) => console.error("Error updating note:", error));
     } else {
       axios
-        .post("http://localhost:5000/api/notes", noteData)
+        .post(`${API_BASE_URL}/notes`, noteData)
         .then(() => {
           navigate("/");
         })

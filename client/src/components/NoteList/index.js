@@ -5,21 +5,13 @@ import SearchBar from "../SearchBar";
 import "./index.css";
 import API_BASE_URL from "../../config";
 
-axios
-  .get(`${API_BASE_URL}/notes`)
-  .then((response) => {
-    setNotes(response.data);
-    setLoading(false);
-  })
-  .catch((error) => console.error("Error fetching notes:", error));
-
 const NoteList = () => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/notes")
+      .get(`${API_BASE_URL}/notes`)
       .then((response) => {
         setNotes(response.data);
         setLoading(false);
@@ -29,7 +21,7 @@ const NoteList = () => {
 
   const deleteNote = (id) => {
     axios
-      .delete(`http://localhost:5000/api/notes/${id}`)
+      .delete(`${API_BASE_URL}/notes/${id}`)
       .then(() => {
         setNotes(notes.filter((note) => note.id !== id));
       })
