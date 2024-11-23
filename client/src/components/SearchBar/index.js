@@ -2,6 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./index.css";
 
+import API_BASE_URL from "../../config";
+
+axios
+  .get(`${API_BASE_URL}/notes?search=${query}`)
+  .then((response) => {
+    setNotes(response.data);
+  })
+  .catch((error) => console.error("Error searching notes:", error));
+
 const SearchBar = ({ setNotes }) => {
   const [query, setQuery] = useState("");
 

@@ -3,6 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./index.css";
 
+import API_BASE_URL from "../../config";
+
+axios
+  .get(`${API_BASE_URL}/notes/${id}`)
+  .then((response) => {
+    const { title, description, category, completed } = response.data;
+    setTitle(title);
+    setDescription(description);
+    setCategory(category);
+    setCompleted(completed);
+  })
+  .catch((error) => console.error("Error fetching note:", error));
+
 const NoteForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

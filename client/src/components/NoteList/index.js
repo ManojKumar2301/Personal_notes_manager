@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../SearchBar";
 import "./index.css";
+import API_BASE_URL from "../../config";
+
+axios
+  .get(`${API_BASE_URL}/notes`)
+  .then((response) => {
+    setNotes(response.data);
+    setLoading(false);
+  })
+  .catch((error) => console.error("Error fetching notes:", error));
 
 const NoteList = () => {
   const [notes, setNotes] = useState([]);
