@@ -1,12 +1,15 @@
 .note-list-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.add-note-btn {
-  display: block;
-  width: 50%;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .add-note-btn {
+    display: block;
+    width: 50%;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  .my-4{
+    margin-top: 20px;
+  }

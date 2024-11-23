@@ -50,6 +50,7 @@ const NoteForm = () => {
 
   return (
     <div className="note-form-container">
+      
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">

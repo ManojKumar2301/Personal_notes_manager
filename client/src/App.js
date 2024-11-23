@@ -7,7 +7,6 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <h1 className="my-4">Personal Notes Manager</h1>
       <Routes>
         <Route path="/" element={<NoteList />} />
         <Route path="/add" element={<NoteForm />} />

@@ -30,6 +30,7 @@ const NoteList = () => {
 
   return (
     <div className="note-list-container">
+        <h1 className="my-4">Personal Notes Manager</h1>
       <Link to="/add" className="btn btn-primary add-note-btn">
         Add New Note
       </Link>
@@ -54,7 +55,7 @@ const NoteList = () => {
                   </div>
                   <div>
                     <button
-                      className="btn btn-warning btn-sm me-2"
+                      className="btn btn-info btn-sm me-2"
                       onClick={() =>
                         (window.location.href = `/edit/${note.id}`)
                       }
